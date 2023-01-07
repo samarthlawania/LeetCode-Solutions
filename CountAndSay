@@ -1,0 +1,25 @@
+class Solution {
+    public String countAndSay(int n) {
+        String s = "1";
+        for(int i=1;i<n;i++){
+            String ans = "";
+            for(int j=0;j<s.length();){
+                int x = count(s.charAt(j),s,j);
+                if(x!=0){
+                    ans += Integer.toString(x)+s.charAt(j);
+                }
+                j+=x;
+            }
+            s = ans;
+        }
+        return s;
+    }
+    public static int count(char a,String s,int j){
+        int c =0;
+        for(int i=j;i<s.length();i++){
+            if(s.charAt(i)==a) c++;
+            else return c;
+        }
+        return c;
+    }
+}
