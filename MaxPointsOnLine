@@ -1,0 +1,25 @@
+class Solution {
+    public int maxPoints(int[][] points) {
+        if(points.length==1) return 1;
+        int ans=1;
+        int max = 0;
+        for(int i=0;i<points.length;i++){
+            for(int j=i+1;j<points.length;j++){
+                float slope = (float)(points[j][1]-points[i][1])/(float)(points[j][0]-points[i][0]);
+                ans=2;
+               // System.out.println("slope"+slope);
+                for(int k=0;k<points.length;k++){
+                    float slope0 = 0f;
+                    if(k!=i&&k!=j){
+                       // ans=3;
+                         slope0 = (float)(points[k][1]-points[j][1])/(float)(points[k][0]-points[j][0]);
+                      //   System.out.println(slope0);
+                         if(slope0==slope) ans++;
+                    }
+                }
+                if(ans>max) max = ans;
+            }
+        }
+        return max;
+    }
+}
