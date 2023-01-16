@@ -1,0 +1,26 @@
+class Solution {
+    public int lengthOfLongestSubstring(String str) {
+        int s=0,e=0,l=1,max=0;
+      //  String str = "";
+        while(s<=e&&e<str.length()){
+            if(frq(str,s,e)) l = e-s+1;
+            while(s<e&&(!(frq(str,s,e)))){
+                s++;
+            }
+            l = e-s+1;
+            if(l>max) max = l;
+            e++;
+        }
+        return max;
+    }
+    public static boolean frq(String str,int s,int e){
+        int frq[] = new int[127];
+        for(int i=s;i<=e;i++){
+            frq[str.charAt(i)]++;
+        }
+        for(int i=0;i<127;i++){
+            if(frq[i]>1) return false;
+        }
+        return true;
+    }
+}
