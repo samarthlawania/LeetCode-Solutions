@@ -1,0 +1,23 @@
+class Solution {
+    public String convertToTitle(int columnNumber) {
+        int n = columnNumber;
+        String arr[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        String str = "";
+      //dd  n--;
+       while(n>0){
+           n--;
+           int rem = n%26;
+           str +=arr[rem];
+           n-=rem;
+           n/=26;
+       }
+       String s = "";
+       
+      
+           for(int i =str.length()-1;i>=0;i--){
+           s+=str.charAt(i);
+       
+       }
+           return s;
+    }
+}
