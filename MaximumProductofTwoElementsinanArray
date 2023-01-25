@@ -1,0 +1,7 @@
+class Solution {
+    public int maxProduct(int[] nums) {
+        int l = nums.length;
+        Arrays.sort(nums);
+        return Math.max((nums[l-1]-1)*(nums[l-2]-1),(nums[0]-1)*(nums[1]-1));
+    }
+}
