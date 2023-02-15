@@ -62,9 +62,6 @@ class Solution{
             arr1[c++] = arr[i];
         }
         if(n%2!=0) arr1[c++] = arr[(n/2)];
-        if(n==1){
-            return;
-        }
         for(int i=0;i<n;i++){
             arr[i]=arr1[i];
         }
