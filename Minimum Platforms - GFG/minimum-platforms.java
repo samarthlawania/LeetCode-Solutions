@@ -58,7 +58,7 @@ class Solution
                 count++;
                 maxCount = Math.max(count,maxCount);
                 i++;
-            }else if(arr[i]>dep[j]){
+            }else{
                 count--;
                 j++;
             }
