@@ -34,14 +34,10 @@ class Solution {
     int[] kLargest(int[] arr, int n, int k) {
         Stack<Integer> st = new Stack<>();
         Arrays.sort(arr);
-        for(int i=0;i<n;i++){
-            if(!st.empty()&&st.peek()<=arr[i]) st.push(arr[i]);
-            if(st.empty()) st.push(arr[i]);
-        }
-        int ans[] = new int[k];
         int in=0;
-        while(k-->0) {
-            ans[in++]=st.pop();
+        int ans[] = new int[k];
+        for(int i=n-1;i>n-k-1;i--){
+            ans[in++]=arr[i];
         }
         return ans;
     }
