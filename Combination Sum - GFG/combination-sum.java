@@ -66,10 +66,10 @@ class Solution
     {
         ArrayList<ArrayList<Integer>> li = new ArrayList<ArrayList<Integer>>();
         ArrayList<Integer> li1 = new ArrayList<>();
-        Set<Integer> set = new LinkedHashSet<>();
-    set.addAll(A);
-    A.clear();
-    A.addAll(set);
+    //     Set<Integer> set = new LinkedHashSet<>();
+    // set.addAll(A);
+    // A.clear();
+    // A.addAll(set);
     
         Collections.sort(A);
         solve(A,B,li,li1,0);
@@ -82,7 +82,14 @@ class Solution
         }
         if(B<0) return;
         for(int i=in;i<A.size();i++){
-            if(B>0){
+            boolean f = true;
+            for(int j=0;j<i;j++) {
+				if(A.get(i)==A.get(j)) {
+					f = false;
+					break;
+				}
+			}
+            if(B>0&&f){
                 li1.add(A.get(i));
                 solve(A,B-A.get(i),li,li1,i);
                 li1.remove(li1.size()-1);
