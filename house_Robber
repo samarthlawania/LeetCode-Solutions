@@ -1,0 +1,14 @@
+class Solution {
+    public int rob(int[] nums) {
+        int arr[] = new int[nums.length+1];
+        Arrays.fill(arr,-1);
+        return solve(nums,arr,0);
+    }
+    public static int solve(int nums[],int arr[],int i){
+        if(i>=nums.length) return 0;
+        if(arr[i]!=-1) return arr[i];
+        int a = nums[i]+solve(nums,arr,i+2);
+        int b = solve(nums,arr,i+1);
+        return arr[i] = Math.max(a,b);
+    }
+}
